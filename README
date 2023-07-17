@@ -1,0 +1,9 @@
+Ter o docker instalado e executando
+Criar um diretorio para instalação - baixar do git
+----
+
+docker run --rm -it -v $PWD/config:/usr/share/elasticsearch/config docker.elastic.co/elasticsearch/elasticsearch:8.8.2 bin/elasticsearch-keystore create
+
+echo "YourPassword" | docker run --rm -i -v $PWD/config:/usr/share/elasticsearch/config docker.elastic.co/elasticsearch/elasticsearch:8.8.2 bin/elasticsearch-keystore add --stdin "bootstrap.password"
+
+docker-compose up
